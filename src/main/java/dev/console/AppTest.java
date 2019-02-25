@@ -1,11 +1,13 @@
 package main.java.dev.console;
 
+import main.java.dev.exception.CalculException;
 import main.java.dev.service.CalculService;
 
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.contrib.java.lang.system.SystemOutRule;
+import org.junit.contrib.java.lang.system.TextFromStandardInputStream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,6 +26,8 @@ public class AppTest {
 	public final SystemOutRule systemOutRule = new SystemOutRule().enableLog();
 	private App app;
 	private CalculService calculService;
+	private Scanner scan;
+	public TextFromStandardInputStream systemInMock = emptyStandardInputStream();
 	
 	@Before
 	public void setUp() throws Exception {
@@ -52,8 +56,10 @@ public class AppTest {
 	}
 	
 	@Test
-	public void testDemarer1(){
-		
+	public void testDemarer() throws CalculException{
+		systemInMock.provideLines("fin");
+		this.app.demarrer();
+		assertThat(systemOutRule.getLog()).contains("Aurevoir :-(");
 	}
 	
 	// TODO LOGGER
