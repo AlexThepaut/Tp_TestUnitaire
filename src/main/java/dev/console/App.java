@@ -24,8 +24,8 @@ public class App {
 	}
 	
 	public void demarrer() throws CalculException {
+		afficherTitre();
 		while(true){
-			afficherTitre();
 			System.out.println("Veuillez saisir une expression :");
 			String expression = this.getScanner().next();
 			if(expression.equals("fin")){
