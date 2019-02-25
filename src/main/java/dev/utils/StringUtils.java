@@ -1,4 +1,4 @@
-package main.java;
+package main.java.dev.utils;
 /** Classe qui fournit des services de traitements de chaines de caractères
  * @author DIGINAMIC
  */
